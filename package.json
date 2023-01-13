@@ -1,0 +1,24 @@
+{
+  "name": "bot-open-ai",
+  "version": "0.1.0",
+  "description": "This is a discord bot working with openai",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --no-warnings index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MathieuSchl/discord-bot-openai.git"
+  },
+  "author": "CodyIsTheSenate",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MathieuSchl/discord-bot-openai/issues"
+  },
+  "homepage": "https://github.com/MathieuSchl/discord-bot-openai#readme",
+  "dependencies": {
+    "discord.js": "^14.7.1",
+    "fs": "^0.0.1-security",
+    "openai": "^3.1.0"
+  }
+}
