@@ -6,10 +6,11 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
-module.exports.createCompletion = async (prompt) => {
+module.exports.createCompletion = async (prompt, nickname) => {
+  prompt = prompt.trim();
   const completion = await openai.createCompletion({
     model: "text-davinci-003",
-    prompt: prompt,
+    prompt: prompt.length !== 0 ? prompt : `Hello${nickname ? `, my nickname is ${nickname}` : ""}`,
     max_tokens: 500,
   });
 
