@@ -1,7 +1,8 @@
 import ChatGPT from "chatgpt-official";
-const config = require("./config.json");
+import dotenv from "dotenv";
+dotenv.config();
 
-let options = {
+const options = {
   temperature: 0.7, // OpenAI parameter
   max_tokens: 256, // OpenAI parameter [Max response size by tokens]
   top_p: 1, // OpenAI parameter
@@ -12,12 +13,16 @@ let options = {
   stop: "<|im_end|>", // OpenAI parameter
 };
 
-const chatGpt = new ChatGPT(config.openAiApipKey, options);
+const chatGpt = new ChatGPT(process.env.openAiApipKey, options);
 
-module.exports.createCompletion = async (prompt, conversationId, nickname) => {
-  prompt = prompt.trim();
+export default class Opai {
+  constructor() {}
 
-  const result = chatGpt.ask(prompt);
+  async ask(prompt, conversationId) {
+    prompt = prompt.trim();
 
-  return result;
-};
+    const result = await chatGpt.ask(prompt, conversationId);
+
+    return result;
+  }
+}
