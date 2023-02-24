@@ -1,3 +1,4 @@
+import { ChannelType } from "discord.js";
 import Opai from "./opai.js";
 const openAi = new Opai();
 
@@ -11,7 +12,7 @@ export default class Events {
 
     this.client.on("messageCreate", async (message) => {
       const botTag = `<@${client.user.id}>`;
-      if (message.content.startsWith(botTag) || message.content.endsWith(botTag)) {
+      if (!message.author.bot && (message.content.startsWith(botTag) || message.content.endsWith(botTag) || message.channel.type === ChannelType.DM)) {
         const prompt = message.content.replace(botTag, "");
         const result = await openAi.ask(prompt, message.author.id + message.channel.id);
         message.reply(result);
