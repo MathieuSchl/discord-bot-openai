@@ -5,7 +5,9 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "node --no-warnings --experimental-modules index.js"
+    "start": "node --no-warnings --experimental-modules index.js",
+    "setCommands": "node --no-warnings --experimental-modules setCommands.js",
+    "removeCommands": "node --no-warnings --experimental-modules removeCommands.js"
   },
   "repository": {
     "type": "git",
